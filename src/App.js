@@ -1,12 +1,29 @@
-import React from 'react';
-import './App.css';
-import Container from '@material-ui/core/Container';
+import React from "react";
+import "./App.css";
+import Container from "@material-ui/core/Container";
+import { makeStyles } from '@material-ui/core/styles';
+import TodoList from "./components/TodoList";
+
+const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: "#800080",
+    height: "100vh"
+  },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  }
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <Container>
-    <h1> In Progress... </h1>
+    <div className={classes.main}>
+    <Container className={classes.container}>
+        <TodoList/>
     </Container>
+    </div>
   );
 }
 
