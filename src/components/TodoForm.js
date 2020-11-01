@@ -6,10 +6,6 @@ import InputBase from '@material-ui/core/InputBase';
 const useStyles = makeStyles((theme) => ({
     toDoForm: {
         width: "100%",
-        display: 'flex',
-        [theme.breakpoints.down('xs')]: {
-           flexDirection: 'column',
-        },
     },
     toDoInput: {
         padding: '14px',
@@ -41,10 +37,12 @@ const useStyles = makeStyles((theme) => ({
         textTransform: 'uppercase',
         fontWeight: '700',
         marginLeft: '20px',
+        marginBottom: '5px',
         fontFamily: 'Segoe UI',
         [theme.breakpoints.down('xs')]: {
             marginTop: '20px',
-            marginRight: '20px'
+            marginRight: '20px',
+            marginLeft: '50px'
         },
     },
     toDoEditButton: {
@@ -58,10 +56,12 @@ const useStyles = makeStyles((theme) => ({
         textTransform: 'uppercase',
         fontWeight: '700',
         marginLeft: '20px',
-        marginTop: '30px',
+        marginBottom: '5px',
         fontFamily: 'Segoe UI',
         [theme.breakpoints.down('xs')]: {
-            marginRight: '20px'
+            marginRight: '20px',
+            marginLeft: '40px',
+            marginTop: '20px',
         },
     },
 }));
