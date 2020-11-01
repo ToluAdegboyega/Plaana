@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
       toDoInputEdit: {
         padding: '14px',
         borderRadius: '5px',
-        border: '2px solid #5d0cff',
+        border: '2px solid rgba(44, 130, 201, 1)',
         outline: 'none',
         background: 'transparent',
         color: 'grey',
         fontSize: '18px',
-        marginTop: '20px'
+        marginTop: '30px'
       },
     toDoButton: {
         padding: '15px',
@@ -44,6 +44,23 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Segoe UI',
         [theme.breakpoints.down('xs')]: {
             marginTop: '20px',
+            marginRight: '20px'
+        },
+    },
+    toDoEditButton: {
+        padding: '15px',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        outline: 'none',
+        background: 'linear-gradient(90deg, rgba(44, 130, 201, 1) 0%, rgba(0, 181, 204, 1) 100% )',
+        color: '#fff',
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        marginLeft: '20px',
+        marginTop: '30px',
+        fontFamily: 'Segoe UI',
+        [theme.breakpoints.down('xs')]: {
             marginRight: '20px'
         },
     },
@@ -84,7 +101,7 @@ function TodoForm(props) {
                  //autoFocus
                  multiline
                 />
-                <Button className={classes.toDoButton} 
+                <Button className={classes.toDoEditButton} 
                 variant="contained"
                 type="submit">
                     Update 
