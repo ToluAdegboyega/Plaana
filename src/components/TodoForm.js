@@ -1,16 +1,52 @@
-import React, {useState, useEffect, useRef } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useState} from 'react';
+import { makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import InputBase from '@material-ui/core/InputBase'
 
 const useStyles = makeStyles((theme) => ({
+    toDoForm: {
+        width: "100%",
+        display: 'flex',
+        [theme.breakpoints.down('xs')]: {
+           flexDirection: 'column',
+        },
+    },
     toDoInput: {
-        borderRadius: "8px",
-        backgroundColor: "white",
-        padding: "5px"
+        padding: '14px',
+        borderRadius: '5px',
+        border: '2px solid #5d0cff',
+        outline: 'none',
+        background: 'transparent',
+        color: 'grey',
+        fontSize: '18px'
       },
-      toDoButton: {
-        margin: theme.spacing(1),
+      toDoInputEdit: {
+        padding: '14px',
+        borderRadius: '5px',
+        border: '2px solid #5d0cff',
+        outline: 'none',
+        background: 'transparent',
+        color: 'grey',
+        fontSize: '18px',
+        marginTop: '20px'
       },
+    toDoButton: {
+        padding: '15px',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        outline: 'none',
+        background: 'linear-gradient(90deg, rgba(93, 12, 255, 1) 0%, rgba(155, 0, 250, 1) 100% )',
+        color: '#fff',
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        marginLeft: '20px',
+        fontFamily: 'Segoe UI',
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '20px',
+            marginRight: '20px'
+        },
+    },
 }));
 
 function TodoForm(props) {
@@ -19,12 +55,7 @@ function TodoForm(props) {
     const [input, setInput] = 
     useState(props.edit ? props.edit.value : '');
 
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        inputRef.current.focus();
-    });
-
+   
     const handleChange = e => {
         setInput(e.target.value);
     };
@@ -41,31 +72,34 @@ function TodoForm(props) {
     };
 
     return (
+        
         <form className={classes.toDoForm} onSubmit={handleSubmit}>
             {props.edit ? (
                 <>
-                 <input type="text"
+                 <InputBase type="text"
                  placeholder="Update your list" 
                  value={input}
                  name="text" className={classes.toDoInputEdit}
                  onChange={handleChange}
-                 ref={inputRef}
+                 //autoFocus
+                 multiline
                 />
                 <Button className={classes.toDoButton} 
                 variant="contained"
                 type="submit">
-                    Update
+                    Update 
                 </Button>
                 </>
             ) : 
             (
                 <>
-                <input type="text"
+                <InputBase type="text"
                 placeholder="Add a ToDo" 
                 value={input}
                 name="text" className={classes.toDoInput}
                 onChange={handleChange}
-                ref={inputRef}
+                autoFocus 
+                multiline
                />
                <Button className={classes.toDoButton} 
                variant="contained"
@@ -76,6 +110,7 @@ function TodoForm(props) {
             )}
 
         </form>
+      
     )
 }
 

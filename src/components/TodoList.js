@@ -1,9 +1,27 @@
 import React,{useState}  from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import TodoForm from '../components/TodoForm';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import Todo from './Todo';
 
+const useStyles = makeStyles((theme) => ({
+    typography: {
+        color: 'white',
+        marginBottom: '50px',
+        textAlign: 'center',
+        fontFamily: 'Segoe UI'
+    },
+    paper: {
+        padding: '50px',
+        borderRadius: '20px',
+        margin: '50px'
+    }
+}));
+
 function TodoList() {
+    const classes = useStyles();
+
     const [todos, setTodos] = useState([]);
 
     const addTodo = todo => {
@@ -41,16 +59,18 @@ function TodoList() {
 
     return (
         <div>
-            <Typography variant="h3">
-                What's the plan for today?
+              <Typography variant="h4" className={classes.typography}>
+                What's the plan for today ?
             </Typography>
-            <TodoForm onSubmit={addTodo} />
-            <Todo 
-            todos={todos}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-            updateTodo={updateTodo}
-            />
+            <Paper elevation={3} className={classes.paper}>
+                <TodoForm onSubmit={addTodo} />
+                <Todo 
+                todos={todos}
+                completeTodo={completeTodo}
+                removeTodo={removeTodo}
+                updateTodo={updateTodo}
+                />
+            </Paper>
         </div>
     )
 }

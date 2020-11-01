@@ -1,29 +1,25 @@
 import React from "react";
-import "./App.css";
-import Container from "@material-ui/core/Container";
+import "./assets/App.css";
+import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import TodoList from "./components/TodoList";
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    backgroundColor: "#800080",
-    height: "100vh"
-  },
   container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    paddingTop: '180px',
+    display: 'flex',
+    justifyContent: 'center'
   }
 }));
 
 function App() {
+
   const classes = useStyles();
+
   return (
-    <div className={classes.main}>
-    <Container className={classes.container}>
-        <TodoList/>
-    </Container>
-    </div>
+    <Box className={classes.container}>
+      <TodoList/>
+    </Box>
   );
 }
 
