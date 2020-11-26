@@ -23,7 +23,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Box className={classes.container} >
-          <PrivateRoute exact path="/Todo-List" component={TodoList} />
+          <PrivateRoute exact path="/" component={TodoList} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
         </Box>
