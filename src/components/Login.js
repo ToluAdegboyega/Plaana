@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react'; // add {useCallback, useContext} 
-import { withRouter, Redirect } from "react-router";
+import {Redirect } from "react-router";
 import firebaseapp from "../firebase";
 import { AuthContext } from "../Authentication";
 import Button from '@material-ui/core/Button';
@@ -50,7 +50,7 @@ export default function Login({ history }) {
         await firebaseapp
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+        history.push("/Todo-List");
       } catch (error) {
         alert(error);
       }
@@ -59,7 +59,7 @@ export default function Login({ history }) {
   );
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
-    return <Redirect to="/" />;
+    return <Redirect to="/Todo-List" />;
   }
 
   return (
