@@ -1,1 +1,1 @@
-React Todo-List.
+React Todo App.
