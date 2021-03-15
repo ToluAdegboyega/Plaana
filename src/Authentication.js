@@ -5,28 +5,28 @@ import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
    loading: {
-       color: 'white',
-       textAlign: 'center',
-       fontFamily: 'Segoe UI',
-       display: 'flex',
-       justifyContent: 'center',
-       alignItems: 'center',
-       fontWeight: 900,
-       fontSize: '50px',
-       height: '100vh'
+    color: 'white',
+    textAlign: 'center',
+    fontFamily: 'Segoe UI',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 900,
+    fontSize: '50px',
+    height: '100vh'
    }
 }));
   
 
 export const AuthContext = React.createContext();
 
-
-
 export const AuthProvider = ({ children }) => {
     const classes = useStyles();
 
     const [currentUser, setCurrentUser] = useState(null);
+
     const [pending, setPending] = useState(true);
+    
     useEffect(() => {
         firebaseapp.auth().onAuthStateChanged((user) => {
           setCurrentUser(user)
