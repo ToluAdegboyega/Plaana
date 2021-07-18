@@ -1,33 +1,32 @@
-import React, { useCallback} from 'react';
-import { Link } from 'react-router-dom'
+import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import firebaseapp from "../firebase.js";
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   paperH1: {
-    color: 'white',
-    textAlign: 'center',
-    fontFamily: 'Segoe UI'
+    color: "white",
+    textAlign: "center",
+    fontFamily: "Segoe UI",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -35,21 +34,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp({  history  }) {
+export default function SignUp({ history }) {
   const classes = useStyles();
 
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await firebaseapp
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/Todo-List");
-    } catch (error) {
-      alert(error);
-    }
-    }, [history]);
+  const handleSignUp = useCallback(
+    async (event) => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await firebaseapp
+          .auth()
+          .createUserWithEmailAndPassword(email.value, password.value);
+        history.push("/Todo-List");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
   return (
     <Container component="main" maxWidth="xs">
@@ -118,7 +120,7 @@ export default function SignUp({  history  }) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="/login" variant="body2">
+              <Link to="login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
