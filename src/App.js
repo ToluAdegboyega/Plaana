@@ -23,9 +23,9 @@ function App() {
     <AuthProvider>
       <Router>
         <Box className={classes.container}>
-          <PrivateRoute exact path="/Todo-List" component={TodoList} />
-          <Route exact path="/Todo-List/login" component={Login} />
-          <Route exact path="/Todo-List/signup" component={SignUp} />
+          <PrivateRoute exact path="/Plaana" component={TodoList} />
+          <Route exact path="/Plaana/login" component={Login} />
+          <Route exact path="/Plaana/signup" component={SignUp} />
         </Box>
       </Router>
     </AuthProvider>

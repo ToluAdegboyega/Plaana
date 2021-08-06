@@ -50,7 +50,7 @@ export default function Login({ history }) {
         await firebaseapp
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/Todo-List");
+        history.push("/Plaana");
       } catch (error) {
         alert(error);
       }
@@ -60,7 +60,7 @@ export default function Login({ history }) {
   
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
-    return <Redirect to="/Todo-List" />;
+    return <Redirect to="/Plaana" />;
   }
 
   return (

@@ -45,7 +45,7 @@ export default function SignUp({ history }) {
         await firebaseapp
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
-        history.push("/Todo-List");
+        history.push("/Plaana");
       } catch (error) {
         alert(error);
       }

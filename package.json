@@ -1,8 +1,8 @@
 {
-  "name": "todo-list",
+  "name": "plaana",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://toluadegboyega.github.io/Todo-List",
+  "homepage": "http://toluadegboyega.github.io/Plaana",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
